@@ -1,0 +1,21 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "include": [ "~/.config/waybar/modules.json" ],
+  "modules-left": [
+    "wlr/taskbar",
+    "hyprland/window"
+  ],
+  "modules-center": [ "hyprland/workspaces" ],
+  "modules-right": [
+    "custom/updates",
+    "group/resources",
+    "group/radio",
+    "group/controls",
+    "group/system"
+  ],
+  "group/resources": { "modules": [ "cpu", "memory" ] },
+  "group/radio": { "modules": [ "network", "bluetooth" ] },
+  "group/controls": { "modules": [ "pulseaudio", "backlight" ] },
+  "group/system": { "modules": [ "clock", "battery" ] }
+}

@@ -1,0 +1,39 @@
+set history=500
+set wildmenu
+set ruler
+set cmdheight=1
+set hid
+set backspace=eol,start,indent
+set whichwrap+=<,>h,l
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set magic
+set showmatch
+set mat=2
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+set foldcolumn=1
+syntax enable
+set regexpengine=0
+set background=dark
+set encoding=utf8
+set ffs=unix,dos,mac
+set nobackup
+set nowb
+set noswapfile
+set expandtab
+set smarttab
+set shiftwidth=2
+set tabstop=4
+set lbr
+set tw=500
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+set laststatus=2
+set number
+set relativenumber

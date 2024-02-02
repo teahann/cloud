@@ -1,0 +1,18 @@
+@mixin debug-box { box-shadow: 0 0 3px 1px rgba(252,192,252,0.7) inset }
+
+@mixin no-select {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+@mixin bg-blur { backdrop-filter: blur(24px) saturate(0.8) }
+
+@mixin alternate-bg-row {
+  &:nth-of-type(odd) { background: $gradient-odd }
+  &:nth-of-type(even) { background: $gradient-even }
+}
+

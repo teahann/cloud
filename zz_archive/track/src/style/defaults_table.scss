@@ -1,0 +1,25 @@
+
+table {
+	border-spacing: 0;
+
+	tr {
+
+		@include alt-bg-color;
+		@include selectable-row;
+
+		&:first-of-type {
+			background: rgb(30,31,33);
+			position: sticky;
+			top: 0;
+		}
+
+		th, td { padding: unset }
+
+		th {
+			color: rgb(192,192,192);
+			font-size: 1rem;
+			line-height: 1.4rem;
+		}
+
+	} // tr
+} // table

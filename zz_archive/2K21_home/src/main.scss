@@ -1,0 +1,121 @@
+* {
+	font-family: monospace, sans-serif;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html {
+	text-rendering: optimizeLegibility;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(
+	  180deg,
+	  rgb(0,0,0),
+	  rgb(2,2,3)
+	);
+}
+ 
+#hmr {
+	height: 100vh;
+	width: 100vw;
+	overflow: auto;
+}
+
+a {
+	text-decoration: none;
+}
+
+section {
+	display: grid;
+	text-align: center;
+	align-content: center;
+	min-height: 50vh;
+
+	// Page title or action
+	h2 {
+		font-size: 2rem;
+		cursor: default;
+		color: rgb(202,204,209);
+		user-select: none;
+		margin: 0;
+
+		&:hover {
+			letter-spacing: 1px;
+			color: rgb(219,214,217);
+		}
+	}
+	
+	// Every row (includes h2)
+	.Row {
+		width: 720px;
+		max-width: calc(100vw - 8px);
+		margin: 0 auto;
+		line-height: calc(4rem + 1.2vw);
+
+		outline: unset;
+		border: unset;
+
+
+		background: linear-gradient(-45deg,
+			rgba(37,37,37,0.5) 0%,
+			rgba(38,38,38,0.6) 60%,
+			rgba(38,38,38,0.8) 100%
+		);
+		&:nth-child(2n) {
+			background: linear-gradient(125deg,
+				rgba(37,37,37,0.6) 0%,
+				rgba(28,28,28,0.6) 60%,
+				rgba(28,28,28,0.8) 100%
+			);
+		}
+
+		backdrop-filter: blur(42px) saturate(1.6);
+		text-shadow: 0 0 2px rgb(0,0,0);
+		box-shadow: 0 0 3px 1px rgba(80,80,80,0.4) inset;
+		transition: 0.15s all cubic-bezier(0.30,0.53,0.76,1.53);
+
+		&:hover {
+			width: 736px;
+			max-width: calc(100vw - 2px);
+			background: linear-gradient(-45deg,
+				rgba(37,37,37,0.6) 0%,
+				rgba(38,38,38,0.8) 60%,
+				rgba(38,38,38,0.6) 100%
+			);
+
+			&:nth-child(2n) {
+				background: linear-gradient(125deg,
+					rgba(27,27,27,0.6) 0%,
+					rgba(28,28,28,0.8) 50%,
+					rgba(28,28,28,0.6) 100%
+				);
+			}
+		}
+	} // Row
+
+	// Special rules
+	input, button, a {
+		font-size: 2.4rem;
+		text-align: center;
+		color: rgb(238,252,238);
+
+		outline: none;
+		border: none;
+		padding: 0;
+
+		&:hover {
+			font-size: 2.55rem;
+			color: rgb(242,242,242);
+		}
+
+		&:focus, &:active {
+			background: rgba(40,42,45,0.9);
+			&:hover { background: rgba(42,44,47,0.9) }
+		}
+
+	} // input, button
+
+}

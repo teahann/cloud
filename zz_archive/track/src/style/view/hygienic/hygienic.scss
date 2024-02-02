@@ -1,0 +1,22 @@
+
+.Hygienic.View {
+
+	.Completed {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		@include bg-blur;
+		max-width: 800px;
+		margin: 0 auto;
+		width: 100%;
+
+		h2 {
+			grid-column: 1 / span 2;
+		}
+
+		h3 {
+			line-height: 3rem;
+		}
+
+	} // Completed
+} // Hygenic
+

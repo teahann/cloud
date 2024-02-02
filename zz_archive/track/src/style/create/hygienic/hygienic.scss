@@ -1,0 +1,49 @@
+
+.Hygienic.Create {
+
+	.Grid {
+		display: grid;
+		align-content: center;
+		grid-gap: 2px;
+		max-width: 400px;
+		width: calc(100% - 4px);
+		padding: 2px;
+		margin: 0 auto;
+		@include bg-blur;
+
+		.Category {
+			background: rgba(30,31,33,0.8);
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			grid-gap: 2px;
+			padding: 4px;
+
+			h3 {
+				width: 100%;
+				line-height: 2.4rem;
+				letter-spacing: 2px;
+				padding: 0 8px;
+			}
+
+			button {
+				line-height: 2.4rem;
+				font-size: 1.2rem;
+				padding: 0 24px;
+				color: rgb(192,192,192);
+				background: rgba(30,31,33,0.3);
+				box-shadow: 0 0 2px 1px rgba(192,192,192,0.1) inset;
+				&:hover {
+					color: rgb(216,216,216);
+					box-shadow: 0 0 2px 1px rgba(192,192,192,0.6) inset;
+				}
+				&.Added {
+					box-shadow: 0 0 2px 1px rgba(192,192,192,0.8) inset;
+					background: rgba(90,96,93,0.8);
+					color: rgb(252,252,252);
+				}
+			}			
+		} // Category
+		
+	} // Grid
+} // Hygene

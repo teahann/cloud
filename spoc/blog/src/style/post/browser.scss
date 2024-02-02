@@ -1,0 +1,31 @@
+.Browser {
+  padding: 2rem 0;
+
+  .Container {
+    @include glossy-box;
+    border-radius: 8px;
+    text-align: center;
+    display: grid;
+    grid-gap: 2px;
+    margin: 0 auto;
+    width: calc(100% - 12px);
+    max-width: 720px;
+
+    a {
+      color: rgb(236,236,236);
+      line-height: 3rem;
+      font-size: 1.5rem;
+      width: 100%;
+      background: rgba(90,91,93,0);
+      transition: 0.15s all ease-in-out;
+      &:hover {
+        letter-spacing: 1px;;
+        color: rgb(252,252,252);
+        background: rgba(30,31,33,0.3);
+      }
+      &:first-of-type { border-radius: 6px 6px 0 0; }
+      &:last-of-type { border-radius: 0 0 6px 6px; }
+    }
+
+  }
+}

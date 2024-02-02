@@ -1,0 +1,109 @@
+$inner-corner: 2px;
+$container-pad: 4px;
+$outer-corner: calc($inner-corner + $container-pad);
+
+$inner-corner-xl: calc($inner-corner * 2);
+$container-pad-xl: calc($container-pad * 2);
+$outer-corner-xl: calc($inner-corner-xl + $container-pad-xl);
+
+// Image gallery
+.ImageGallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	max-width: 900px;
+	margin: 0 auto;
+
+	figure {
+		display: grid;
+		cursor: pointer;
+		border-radius: $outer-corner;
+		padding: $container-pad;
+		box-shadow: 0 0 4px 2px rgb(192,192,192,0) inset;
+		transition: 0.2s all ease-in-out;
+		@include bg-blur;
+
+		figcaption {
+			line-height: 1.5rem;
+			font-size: 1.25rem;
+			border-radius: $inner-corner $inner-corner 0 0;
+			color: rgb(226,226,226);
+			background: rgb(30,31,33,0.4);
+			letter-spacing: 1px;
+			transition: 0.2s all ease-in-out;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			border-radius: 0 0 $inner-corner $inner-corner;
+		}
+
+		&:hover {
+			background: rgba(94,95,96,0.4);
+			box-shadow: 0 0 4px 2px rgb(192,192,192,0.5) inset;
+
+			figcaption {
+				background: rgba(50,51,53,0.4);
+				color: rgb(246,246,246);
+			}
+		}
+
+	}
+
+	.Exit {
+		width: 100%;
+		max-width: 800px;
+		color: rgb(242,242,242);
+		@include bg-blur;
+		background: rgba(30,31,33,0.6);
+		font-size: 1.8rem;
+		line-height: 2.6rem;
+		margin: 0 auto;
+		cursor: pointer;
+		position: sticky;
+		bottom: 0;
+	}
+}
+
+// View single image
+.Image {
+	display: grid;
+	justify-content: center;
+	text-align: center;
+	border-radius: $outer-corner-xl;
+	padding: $container-pad-xl;
+	@include bg-blur; 
+	max-width: 600px;
+	margin: 0 auto;
+	background: rgba(191,192,193,0.3);
+	box-shadow: 0 0 8px 3px rgba(30,31,33,0.4);
+
+	h3 {
+		line-height: 2.4rem;
+		color: rgb(252,252,252);
+		background: rgba(30,31,33,0.8);
+		border-radius: $inner-corner-xl $inner-corner-xl 0 0;
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+
+	.Row {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		background: rgba(30,31,33,0.4);
+		border-radius: 0 0 $inner-corner-xl $inner-corner-xl;
+
+		a, button {
+			font-size: 1.4rem;
+			line-height: 2.4rem;
+			background: rgba(30,31,33,0);
+		}
+	}
+}

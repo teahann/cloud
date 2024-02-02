@@ -1,0 +1,70 @@
+{
+  // left
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 24,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": []
+  },
+  // center
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": {}
+  },
+  // right
+  "cpu": {
+    "interval": 2,
+    "format": " {usage}%"
+  },
+  "memory": {
+    "interval": 5,
+    "format": "{used:0.1f}G/{total:0.1f}G",
+    "tooltip-format": "{percentage}% used, {avail:0.1f}G available"
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "WiFi connected",
+    "format-ethernet": "{ifname}",
+    "format-disconnected": "No internet",
+    "tooltip-format": "{ifname} via {gwaddri}",
+    "tooltip-format-wifi": "{ifname} @{essid}\nStrength: {signalStrength}% ({frequency}MHz)\nIP: {ipaddr}\nUp:{bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}\nUp: {bandiwdthUpBits} Down: {bandwidthDownBits}",
+    "max-length": 50
+  },
+  "bluetooth": {
+    "format": "Bluetooth {status}",
+    "format-disabled": "",
+    "format-off": "",
+    "interval": 30
+  },
+  "pulseaudio": {
+    "format": "Volume {volume}%",
+    "format-bluetooth": "{volume}% {format_source}",
+    "format-bluetooth-muted": "{icon} {format_source}",
+    "format-muted": "{format_source}",
+    "format-source": "{volume}%",
+    "format-source-muted": "Muted",
+  },
+  "backlight": {
+    "format": "Backlight {percent}%",
+    "format-icons": [" ", " "]
+  },
+  "clock": {
+    "tooltip-format": "{:%Y %B}\n<tt>{calendar}</tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "battery": {
+    "states": { "warning": 25, "critical": 10 },
+    "format": "{icon}",
+    "format-charging": "Charging {capacity}%",
+    "format-plugged": "Plugged in {capacity}%",
+    "format-icons": [
+      "▮▯▯▯▯▯▯▯▯▯", "▮▮▯▯▯▯▯▯▯▯", "▮▮▮▯▯▯▯▯▯▯", "▮▮▮▮▯▯▯▯▯▯", "▮▮▮▮▮▯▯▯▯▯",
+      "▮▮▮▮▮▮▯▯▯▯", "▮▮▮▮▮▮▮▯▯▯", "▮▮▮▮▮▮▮▮▯▯", "▮▮▮▮▮▮▮▮▮▯", "▮▮▮▮▮▮▮▮▮▮▯"
+    ]
+  }
+}

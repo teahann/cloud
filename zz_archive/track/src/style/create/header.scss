@@ -1,0 +1,46 @@
+
+header.Create {
+	display: flex;
+	justify-content: space-between;
+
+	@include bg-blur;
+	background: rgba(30,31,33,0.6);
+
+	a, h2 { line-height: 2.5rem; }
+
+	.Back, .Save {
+		padding: 0 24px;
+		font-size: 1.4rem;
+	}
+
+	.Back { color: rgb(217,217,217) }
+
+	.Title {
+		font-size: 1.2rem;
+		@media screen and (max-width: 500px) {
+			display: none;
+		}
+	}	
+
+	.Datetime { 
+		display: grid;
+		margin: 0.25rem 0;
+
+		input {
+			background: unset;
+			font-size: 1rem;
+			filter: invert(1);
+			color: rgb(3,3,3);
+			font-weight: 400;
+			height: 1rem;
+		}
+	}
+
+	.Save {
+		color: rgba(192,252,192,0.8);
+		&:hover {
+			color: rgba(228,252,228,1);
+		}
+	}
+
+} // header

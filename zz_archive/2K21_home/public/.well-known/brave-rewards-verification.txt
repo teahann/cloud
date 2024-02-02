@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: 2nami.com
+Token: d535e10fce42803085319d44f9c47fb3c97e564337019fe28d2e32177346ad10

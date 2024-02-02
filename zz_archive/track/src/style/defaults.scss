@@ -1,0 +1,57 @@
+
+* {
+	font-family: monospace, sans-serif;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html {
+	text-rendering: optimizeLegibility;
+	-webkit-text-size-adjust: 100%;
+}
+
+#hmr {
+	display: grid;
+	min-height: 100dvh;
+	align-content: center;
+	text-align: center;
+}
+
+body, h2, h3, p, input, textarea, select {
+	margin: 0;
+	color: rgb(242,242,242);
+}
+
+button { cursor: pointer }
+option { background: rgb(33,34,36) }
+
+h2, h3 {
+	cursor: default;
+	font-weight: 300;
+}
+
+a {
+	display: block;
+	text-decoration: none;
+}
+
+a, button {
+	color: rgb(228,228,228);
+	transition: 0.142s color ease-out;
+	&:hover { color: rgb(252,252,252) }
+}
+
+input, textarea, button, select {
+	background: unset;
+	border: unset;
+	margin: unset;
+	padding: unset;
+	outline: unset;
+	border-radius: unset; // mobile thing
+}
+
+input { text-align: center }
+
+input, textarea {
+	line-height: inherit;
+	&::placeholder { color: rgb(162,162,162) }
+}

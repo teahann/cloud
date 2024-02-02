@@ -1,0 +1,12 @@
+.Host {
+  display: grid;
+  grid-gap: 4px;
+  height: 100dvh;
+
+  .Instrument {
+    width: calc(100dvw - 8px);
+    max-width: 801px;
+    margin: 0 auto;
+  }
+
+}

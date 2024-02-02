@@ -1,0 +1,43 @@
+.Links {
+	display: grid;
+	width: 100%;
+	max-width: 480px;
+	margin: 0 auto;
+	grid-gap: 1px;
+	padding: 2px;
+	box-shadow: $menu-outline;
+	@include bg-blur;
+
+	h2 {
+		font-size: 1.15rem;
+		line-height: 1.6rem;
+		letter-spacing: 1px;
+		color: rgb(168,168,168);
+		background: rgba(30,31,33,0.68);
+	} // h2
+
+	a {
+		font-size: 1.8rem;
+		line-height: 3.2rem;
+		@include alt-bg-color;			
+
+		&.Back {
+			font-size: 1.6rem;
+			color: rgb(182,182,182);
+			&:hover { color: rgb(212,212,212) }
+		}
+
+		.Expanded {
+			display: flex;
+			justify-content: space-evenly;
+			a {
+				width: calc(33% - 1px);
+				background: $gradient-odd;
+				&:hover {
+					background: $gradient-hover;
+				}
+			}
+		} // Expanded
+
+	} // a
+}

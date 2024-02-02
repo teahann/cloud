@@ -1,0 +1,20 @@
+html {
+  font-family: monospace, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  color: rgb(252,252,252);
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  font-weight: 300;
+}
+
+button, input, select, select, option {
+  margin: unset;
+  padding: unset;
+  outline: unset;
+  background: unset;
+  border: unset;
+}

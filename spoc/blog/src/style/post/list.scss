@@ -1,0 +1,17 @@
+.List {
+  .Content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    a {
+      min-width: 60px;
+      text-align: center;
+      padding: 6px 1rem;
+      margin: 1px;
+      font-size: 1.2rem;
+      background: rgba(30,31,33,0.6);
+      @include link-style;
+    }
+  }
+}

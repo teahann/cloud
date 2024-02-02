@@ -1,0 +1,46 @@
+/* defaults */
+* { font-family: monospace; }
+button {
+  border: unset;
+  outline: unset;
+  padding: unset;
+}
+button:hover {
+  background: rgba(0,0,0,0);
+}
+
+/* entire bar */
+window { background: rgba(0,0,0,0); }
+
+/* open program icons */
+#taskbar, #taskbar > button { margin: 0 4px; }
+
+/* current window info */
+#window { color: rgb(242,242,242); }
+
+/* group/all */
+#backlight, #cpu, #memory, #network,
+#battery, #clock, #pulseaudio,#bluetooth {
+  color: rgb(236,236,236);
+  margin: 0 8px;
+}
+
+/* group/resources */
+#cpu, #memory { min-width: 100px }
+
+/* group/radio */
+#network, #bluetooth { min-width: 128px }
+#bluetooth.on, #bluetooth.connected { color: rgb(232,232,252); }
+#network.disconnected, #bluetooth.off { color: rgb(192,40,40); }
+
+/* group/controls */
+#pulseaudio, #backlight { min-width: 128px }
+#pulseaudio.muted { color: rgb(252,192,192); }
+
+/* group/system */
+#clock, #battery { min-width: 80px; }
+#clock { font-size: 1.6rem; }
+#battery { font-size: 0.4rem; }
+#battery.warning { color: rgb(232,232,186); }
+#battery.charging, #battery.plugged { color: rgb(186,232,232);}
+#battery.critical:not(.charging) { color: rgb(252,162,162); }

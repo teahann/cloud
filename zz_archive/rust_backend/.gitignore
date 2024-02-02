@@ -1,0 +1,12 @@
+target/
+.idea/
+*.vim
+*.vi
+.env
+*-shm
+*-wal
+debug/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+database.sqlite

@@ -1,0 +1,10 @@
+
+// metabolic
+$search-y: 2.6rem;
+$remaining-y: calc(100dvh - $header-y - $search-y);
+$table-height: calc($remaining-y / 2);
+
+// loading
+$inner-corners: 16px;
+$contain-pad: 4px;
+$contain-corners: calc($inner-corners + $contain-pad);

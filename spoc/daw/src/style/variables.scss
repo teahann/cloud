@@ -1,0 +1,18 @@
+$gradient-odd: linear-gradient(-45deg,
+  rgba(37,37,37,0.3) 0%,
+  rgba(38,38,38,0.5) 22%,
+  rgba(38,38,38,0.7) 100%
+);
+
+$gradient-even: linear-gradient(125deg,
+  rgba(37,37,37,0.3) 0%,
+  rgba(28,28,28,0.5) 22%,
+  rgba(28,28,28,0.7) 100%
+);
+
+$header-height: 3rem;
+
+// Synth
+$b-radius: 6px;
+$outter-pad: 4px;
+$inner-b-radius: 4px;

@@ -1,0 +1,27 @@
+$gradient1-odd: linear-gradient(
+  45deg,
+  rgba(30,31,33,0.8) 0%,
+  rgba(30,31,33,1) 10%,
+  rgba(33,34,36,1) 90%,
+  rgba(33,34,36,0.8) 100%
+);
+
+$gradient1-even: linear-gradient(
+  -45deg,
+  rgba(30,31,33,0.8) 0%,
+  rgba(30,31,33,1) 10%,
+  rgba(33,34,36,1) 90%,
+  rgba(33,34,36,0.8) 100%
+);
+
+$link-box:
+  rgba(30,31,33,0) 0 0 3px 0px inset,
+  rgba(30,31,33,0) 0 0 0 1px inset,
+  rgba(60,61,63,0.4) 0 0 3px 0px,
+  rgba(60,61,63,0.4) 0 0 0 1px;
+
+$link-box-hover:
+  rgba(90,91,93,0.6) 0 0 3px 0px inset,
+  rgba(90,91,93,0.6) 0 0 0 1px inset,
+  rgba(60,61,63,0.2) 0 0 3px 0px,
+  rgba(60,61,63,0.2) 0 0 0 1px;

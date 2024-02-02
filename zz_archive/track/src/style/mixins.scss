@@ -1,0 +1,32 @@
+
+@mixin bg-blur { backdrop-filter: blur(24px) saturate(0.87) }
+
+@mixin alt-bg-color {
+	&:nth-of-type(odd) { background: $gradient-odd }
+	&:nth-of-type(even) { background: $gradient-even }
+	transition: 0.15s all ease-in-out;
+	&:hover { background: $gradient-hover }
+}
+
+
+@mixin selectable-row {
+	&.Selectable { 
+		cursor: pointer;
+		&:hover { background: $gradient-hover }
+	}
+
+	&.Selected {
+		background: $gradient-selected;
+		&:hover { background: $gradient-selected-hover }
+	}
+}
+
+@mixin menu-outline {
+	box-shadow: $menu-outline;
+	transition: 0.2s all linear;
+	&:hover { box-shadow: $menu-outline }
+}
+
+@mixin debug-outline {
+	box-shadow: 0 0 3px 2px red inset;
+}
