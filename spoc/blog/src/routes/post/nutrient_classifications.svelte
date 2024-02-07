@@ -8,11 +8,8 @@
     <section>
       <h3>Intro</h3>
       <p>
-        My interpretation of the Book of Genesis is genetic. It talks about a firmament (mitochondria) and consumption of forbidden fruit (heterotrophy). Now here we are, non-autotrophic organisms, dependent on external systems for metabolic compounds.
-      </p>
-      <p>
-        Given this dependency, we developed abstractions for metabolic intake. Thinking of edible compounds as nutrients is a useful abstraction, which allows us to make accurate predictions.
-        However some of our abstractions are outdated. Each additional flaw limits the ability to predict outcomes, and prevents us from adapting to healthier choices. Let's update what we can.
+        Given the required dependency of external systems to provide metabolic compounds, we have created abstractions for metabolic reasoning. Edible compounds are considered nutrients, this is a useful abstraction.
+        However some abstractions are outdated. Let's update what some understandings.
       </p>
     </section>
     <section>
@@ -28,10 +25,8 @@
       </p>
     </section>
     <section>
-      <h3>Fats (lipids)</h3>
-      <p>
-        "Fats" can describe a nutrient type or stored tissue. I call "nutrient fats" lipids, and only consider adipose tissue as fat. So I typically avoid calling any nutrient a fat.
-      </p>
+      <h3>Macros and calories</h3>
+      <p>These are low value metrics. It makes sense as on of the first iterations into "improving health," but it's an entry level metabolic abstraction.</p>
     </section>
   </div>
   <a href="../" class="Back">Back</a>

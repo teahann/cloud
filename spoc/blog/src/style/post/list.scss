@@ -3,14 +3,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
     
-    a {
+    a, .Back {
       min-width: 60px;
       text-align: center;
-      padding: 6px 1rem;
-      margin: 1px;
+      padding: 8px 2rem;
+      margin: 0.5px;
       font-size: 1.2rem;
-      background: rgba(30,31,33,0.6);
+      background: rgba(30,31,33,0.8);
+      backdrop-filter: blur(24px);
       @include link-style;
     }
   }

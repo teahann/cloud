@@ -1,5 +1,4 @@
 @mixin gradient-rows {
-  border-radius: 8px;
   &:nth-of-type(odd) { background: $gradient1-odd }
   &:nth-of-type(even) { background: $gradient1-even }
 }
