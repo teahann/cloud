@@ -1,0 +1,56 @@
+<script>
+  const data = {
+    "Andry Konovalov": "https://xairy.io/",
+    "Bleeping Computer": "https://www.bleepingcomputer.com/",
+    "Check Point": "https://evasions.checkpoint.com/",
+    "CIS advisory": "https://www.cisecurity.org/advisory",
+    "Capt. Meelo": "https://captmeelo.com/",
+    "Cyberpunk": "https://www.cyberpunk.rs/",
+    "Daniel Miessler": "https://danielmiessler.com/",
+    "Dark Operator": "https://www.darkoperator.com/",
+    "HackTricks": "https://book.hacktricks.xyz/",
+    "Help Net Security": "https://www.helpnetsecurity.com/",
+    "h0mbre": "https://h0mbre.github.io/",
+    "Miloserdov": "https://miloserdov.org/",
+    "NetSec": "https://www.netsecfocus.com/",
+    "Shell Storm": "https://shell-storm.org/",
+    "vx-underground": "https://vx-underground.org/",
+    "Bash": "https://devhints.io/bash",
+    "Bug Bounty": "https://m0chan.github.io/2019/12/17/Bug-Bounty-Cheetsheet.html",
+    "Linux": "https://phoenixnap.com/kb/wp-content/uploads/2023/11/linux-commands-cheat-sheet-pdf.pdf",
+    "Netcat": "https://quickref.me/nc",
+    "Nmap": "https://www.stationx.net/nmap-cheat-sheet/",
+    "Red Team": "https://0xsp.com/offensive/red-teaming-toolkit-collection/",
+    "Hyprland": "https://wiki.hyprland.org/",
+    "Linux Kernel Modules": "http://www.ouah.org/LKM_HACKING.html",
+    "NixOS Packages": "https://search.nixos.org/packages",
+    "Red Team": "https://www.ired.team/",
+    "Security": "https://xapax.github.io/security/",
+    "Tmux": "https://tmuxcheatsheet.com/",
+    "Waybar": "https://www.mankier.com/5/waybar",
+    "Wireshark": "https://www.malware-traffic-analysis.net/tutorials/index.html",
+    "Build your own": "https://github.com/codecrafters-io/build-your-own-x",
+    "Hacking": "https://github.com/vitalysim/Awesome-Hacking-Resources",
+    "Hyprland": "https://github.com/hyprland-community/awesome-hyprland",
+    "Awesome Malware": "https://github.com/rootkit-io/awesome-malware-development",
+    "Red Team": "https://github.com/infosecn1nja/Red-Teaming-Toolkit",
+    "OSINT": "https://github.com/jivoi/awesome-osint",
+    "OWASP": "https://github.com/OWASP/CheatSheetSeries",
+    "Raspberry Pi": "https://github.com/thibmaek/awesome-raspberry-pi",
+    "Red Team": "https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki",
+    "Security": "https://github.com/danielmiessler/SecLists",
+    "Self Hosted": "https://github.com/awesome-selfhosted/awesome-selfhosted",
+    "Art of Malware": "https://danusminimus.github.io/2020/03/04/The-Art-of-Malware.html",
+    "Communication Systems": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Communication_Systems.pdf",
+    "OpenSSH": "https://en.wikibooks.org/wiki/OpenSSH/Print_version",
+    "Protocollo": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Protocolli_e_architetture_di_routing_lecture_notes.pdf",
+    "x86 Assembly": "https://www.cs.virginia.edu/~evans/cs216/guides/x86.html"
+  }
+</script>
+
+<div id="Links">
+  <a href="./" class="Back">❌</a>
+  {#each Object.entries(data) as [name, url]}
+    <a href={url} target="_blank">{name}</a>
+  {/each}
+</div>
