@@ -1,9 +1,8 @@
 export const BUCKET_URL = 'https://dchqsxvlazultvsphmau.supabase.co/storage/v1/object/public/img/'
-export const DEFAULT_BG = 'https://dchqsxvlazultvsphmau.supabase.co/storage/v1/object/public/img/Default.webp'
 
 export const load_bg = (new_bg = false) => {
   if (new_bg) window.localStorage.setItem('BG_URL', new_bg)
-  let url = localStorage.getItem('BG_URL') || DEFAULT_BG
+  let url = localStorage.getItem('BG_URL') || ''
   if (document.body.querySelector('video')) document.body.querySelector('video').remove()
 
   if (url.endsWith('.mp4')) {

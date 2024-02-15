@@ -15,6 +15,7 @@
     "NetSec": "https://www.netsecfocus.com/",
     "Shell Storm": "https://shell-storm.org/",
     "Bash": "https://devhints.io/bash",
+    "Chemistry": "https://www.geeksforgeeks.org/cbse-class-9-chemistry-notes",
     "Bug Bounty": "https://m0chan.github.io/2019/12/17/Bug-Bounty-Cheetsheet.html",
     "Linux": "https://phoenixnap.com/kb/wp-content/uploads/2023/11/linux-commands-cheat-sheet-pdf.pdf",
     "Netcat": "https://quickref.me/nc",

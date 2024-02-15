@@ -1,7 +1,7 @@
 <script>
   const playlists = {
     'Entertainment 📺': 'https://www.youtube-nocookie.com/embed/krsBRQbOPQ4?si=_CajsA-It5yORXHy',
-    'Music 🎵': 'https://www.youtube-nocookie.com/embed/videoseries?list=PLHOSOKcJlCZeiNiggSZ4lp4Ov7Spd3AlA'
+    'Music 🎵': 'https://www.youtube-nocookie.com/embed/videoseries?si=0vypE9cdPoEECi9B&amp;list=PLKio8DeB65jAXs3BLqnsRvN_AKyOtug6w'
   }
 
   let iframe_url = new String()
