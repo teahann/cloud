@@ -3,7 +3,9 @@
   import { isActive } from '@roxi/routify'
   import { load_bg } from '@/utils/bg.js'
   
-  onMount(() => load_bg())
+  onMount(() => {
+    document.readyState === 'complete' ? load_bg() : window.addEventListener('load', load_bg);
+  })
 
   const links = [
     ['index', '🏡'],
