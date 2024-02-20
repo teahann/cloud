@@ -16,14 +16,12 @@
 
 
 <div id="Settings">
+  
   <div class="Setting">
-    <label for="bg">
-      Background
-      <button on:click={clear_bg}>🔄️</button>
-      <button on:click={rand_bg}>🔀</button>
-    </label>
-
-    <input type="text" id="bg" bind:value={BG_URL} placeholder="Media source here" />
+    <label for="bg">Background</label>
+    <button on:click={clear_bg} title="Reset">🔄️</button>
+    <button on:click={rand_bg} title="Random">🔀</button>
+    <input type="text" id="bg" bind:value={BG_URL} placeholder="URL here" />
   </div>
 
 </div>

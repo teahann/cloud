@@ -26,12 +26,13 @@
     }
   }
 
+  button { cursor: pointer; }
+
   button, input {
     background: unset;
     border: unset;
     padding: unset;
     outline: unset;
-    cursor: pointer;
     color: rgb(252,252,252);
   }
 
@@ -55,6 +56,7 @@
     backdrop-filter: blur(24px) saturate(0.8);
   }
 
+  $nav-y: calc(42px + 1dvw);
 
 // -- Root container --
 body {
@@ -62,23 +64,26 @@ body {
 
   nav {
     position: fixed;
-    width: 100dvw;
     display: flex;
     justify-content: center;
     bottom: 0;
     z-index: 4;
+    @include gloss-bg;
+    border-radius: 0 8px 0 0;
     transition: 0.3s all ease-in-out;
 
     a {
-      padding: 12px 4px;
       font-size: 2.4rem;
-      line-height: 2.4rem;
+      line-height: $nav-y;
       color: rgba(255,255,255,0.5);
       box-shadow: 0 0 0 0 rgba(252,252,252,0) inset;
+      padding: 0.5rem 8px;
       transition: 0.15s all ease-in-out;
       &.Open {
-        font-size: 3.6rem;
+        font-size: calc($nav-y - 4px);
+        line-height: calc($nav-y + 1rem);
         color: rgba(255,255,255,1);
+        padding: 0 8px;
         text-shadow: 0px 2px 2px rgba(30,31,33,0.8);
       }
     } // a
@@ -86,7 +91,7 @@ body {
 
   main {
     display: grid;
-    min-height: calc(100dvh - 4rem);
+    min-height: calc(100dvh - $nav-y);
     align-content: center;
 
     #Home {
@@ -99,6 +104,56 @@ body {
       }
     }
 
+    #Playlist {
+      display: grid;
+      @include gloss-bg;
+      margin: auto;
+      border-radius: 8px;
+      button {
+        width: calc(100dvw - 20px);
+        max-width:600px;
+        font-size: 2rem;
+        line-height: 4rem;
+      }
+
+      iframe {
+        border: unset;
+        border-radius: 4px;
+        height: calc(100dvh - 8rem);
+        width: calc(100dvw - 4rem);
+        max-width: 1600px;
+        max-height: 900px;
+        box-shadow: 0 0 3px 1px rgba(20,20,20,1);
+      }
+    } // Playlist
+
+    #Posts {
+      display: grid;
+      @include gloss-bg;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: auto;
+      width: calc(100dvw - 2rem);
+      a {
+        text-align: center;
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+      }
+    }
+
+    #Post {
+      display: grid;
+      justify-content: center;
+      @include gloss-bg;
+      max-width: 600px;
+      margin: auto;
+      width: calc(100dvw - 2rem);
+      h2, p, button {
+        color: rgb(252,252,252);
+        text-align: center;
+      }
+    }
+    
     #Links {
       display: flex;
       flex-wrap: wrap;
@@ -106,11 +161,14 @@ body {
       justify-content: space-around;
       max-width: 800px;
       margin: auto;
+      border-radius: 8px;
       a {
         line-height: 2rem;
         font-size: 1.25rem;
-        min-width: 120px;
+        min-width: 94px;
         padding-right: 8px;
+        text-align: center;
+        &:first-of-type { min-width: 42px; }
       }
       &.Home {
         display: grid;
@@ -131,36 +189,15 @@ body {
       }
     } // Links
 
-    #Playlist {
-      display: grid;
-      @include gloss-bg;
-      margin: auto;
-      padding: 4px;
-      button {
-        width: calc(100dvw - 20px);
-        max-width:600px;
-        font-size: 2rem;
-        line-height: 4rem;
-      }
-
-      iframe {
-        border: unset;
-        height: calc(100dvh - 5rem);
-        width: calc(100dvw - 20px);
-        max-width: 1920px;
-        max-height: 1080px;
-        box-shadow: 0 0 3px 1px rgba(20,20,20,1);
-      }
-    } // Playlist
-
     #Shop {
       display: grid;
       justify-content: center;
       text-align: center;
-      width: calc(100dvw - 24px);
-      max-width: 720px;
-      margin: auto;
       @include gloss-bg;
+      max-width: 400px;
+      border-radius: 8px;
+      width: calc(100dvw - 24px);
+      margin: auto;
       button {
         font-size: 2rem;
         line-height: 4rem;
@@ -178,17 +215,14 @@ body {
 
       header {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-evenly;
+        backdrop-filter: blur(72px) saturate(0.4);
         background: rgba(30,31,33,0.4);
-        backdrop-filter: blur(48px) saturate(0.2);
         max-width: 400px;
         margin: auto;
         width: 100%;
         height: 2rem;
-        button {
-          &.Open { text-decoration: underline; }
-        }
+        button { &.Open { text-decoration: underline; } }
       }
 
       .Instrument {
@@ -196,11 +230,11 @@ body {
           width: calc(100dvw - 24px);
           max-width: 400px;
           margin: 0 auto;
+          backdrop-filter: blur(48px) saturate(0.2);
         }
         #Sampler {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          backdrop-filter: blur(48px) saturate(0.6);
           h3 {
             color: rgb(216,216,216);
             padding: 0 8px;
@@ -217,13 +251,12 @@ body {
         }
 
         #Synth {
-          backdrop-filter: blur(8px) saturate(1.3);
           max-width: 400px;
-          background: rgba(30,31,33,0.6);
+          background: rgba(30,31,33,0.3);
           .Config {
             color: rgb(220,228,228);
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
             flex-wrap: wrap;
           }
           table {
@@ -237,24 +270,34 @@ body {
     #Settings {
       display: grid;
       @include gloss_bg;
-      max-width: 999px;
-      width: 100%;
+      max-width: 600px;
+      width: calc(100% - 1rem);
+      grid-gap: 8px;
+      padding: 8px 0 10px 0;
+      border-radius: 8px;
       margin: auto;
-      padding: 8px 0;
       .Setting {
-        display: grid;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        label, button {
+          line-height: 2rem;
+          padding: 0 2px;
+        }
 
         label {
-          font-size: 1.4rem;
-          text-align: center;
+          font-size: 1.6rem;
           color: rgb(252,252,252);
-          line-height: 2.4rem;
-          button { font-size: inherit; }
+        }
+
+        button {
+          font-size: 1.2rem;
         }
 
         input {
-          padding: 12px 0;
           text-align: center;
+          width: 100%;
         }
       }
     } // Settings

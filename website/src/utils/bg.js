@@ -1,9 +1,10 @@
 // runs after initial page load
-export const load_bg = (new_bg = false) => {
-  if (new_bg) window.localStorage.setItem('BG_URL', new_bg)
+export const load_bg = (new_bg = '') => {
+  if (new_bg.length > 0) window.localStorage.setItem('BG_URL', new_bg)
   let url = localStorage.getItem('BG_URL') || ''
 
   if (url.endsWith('.mp4')) {
+    document.body.style.background = 'unset'
     if (document.body.querySelector('video')) document.body.querySelector('video').remove()
     let video = document.createElement('video');
     let source = document.createElement('source');

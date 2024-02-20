@@ -1,4 +1,13 @@
+<script>
+    const posts = [
+      ['Metabolic', 'metabolic'],
+      ['Tech', 'tech']
+    ]
+</script>
+
 
 <div id="Posts">
-	<h3>Posts here</h3>
+  {#each posts as [name, url]}
+    <a href={`./post/${url}`}>{name}</a>
+  {/each}
 </div>
