@@ -24,7 +24,7 @@
   }
 </script>
 
-<div id="Links">
+<div id="Links" class="List">
   <a href="./" class="Back">❌</a>
   {#each Object.entries(data) as [name, url]}
     <a href={url} target="_blank">{name}</a>

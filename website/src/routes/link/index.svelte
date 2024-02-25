@@ -1,5 +1,5 @@
-<div id="Links" class="Home">
-  <a class="Home" href="./link/external">External Sites</a>
-  <a class="Home" href="./link/ware">Opensource</a>
-  <a class="Home" href="./link/apps">Web Apps</a>
+<div id="Links" class="Browser">
+  <a class="Home" href="./link/external">External</a>
+  <a class="Home" href="./link/opensource">Opensource</a>
+  <a class="Home" href="./link/web">Web</a>
 </div>

@@ -1,62 +1,102 @@
 // -- Default --
-  html { 
-    background: linear-gradient(45deg,
-      rgb(30,31,33) 0%,
-      rgb(30,31,33) 33%,
-      rgb(30,31,33) 66%,
-      rgb(30,31,33) 100%
-    );
-    background: rgb(30,31,33);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+html { 
+  font-family: Courier New, Lucida Console, Monaco;
+
+  background: linear-gradient(45deg,
+    rgb(30,31,33) 0%,
+    rgb(30,31,33) 33%,
+    rgb(30,31,33) 66%,
+    rgb(30,31,33) 100%
+  );
+  background: rgb(30,31,33);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body, h2, h3, p {
+  margin: 0;
+}
+
+a {
+  font-size: 1.2rem;
+  text-decoration: unset;
+  text-align: center;
+  color: rgb(212,212,215);
+  &:hover {
+    color: rgb(222,252,242);
   }
+}
 
-  body, h2, h3, p {
-    margin: 0;
-  }
+button { cursor: pointer; }
 
-  a {
-    font-size: 1.2rem;
-    text-decoration: unset;
-    color: rgb(212,212,215);
-    &:hover {
-      color: rgb(222,252,242);
-    }
-  }
+button, input {
+  background: unset;
+  border: unset;
+  padding: unset;
+  outline: unset;
+  color: rgb(252,252,252);
+}
 
-  button { cursor: pointer; }
+video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+  width: 100dvw;
+  height: 100%;
+  object-fit: cover
+}
 
-  button, input {
-    background: unset;
-    border: unset;
-    padding: unset;
-    outline: unset;
-    color: rgb(252,252,252);
-  }
+// -- Variables --
+$gradient-even: linear-gradient(-45deg,
+  rgba(37,37,37,0.1) 0%,
+  rgba(38,38,38,0.3) 22%,
+  rgba(38,38,38,0.5) 100%
+);
 
-  video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    z-index: -2;
-    width: 100dvw;
-    height: 100%;
-    object-fit: cover
-  }
+$gradient-odd: linear-gradient(125deg,
+  rgba(37,37,37,0.1) 0%,
+  rgba(28,28,28,0.3) 22%,
+  rgba(28,28,28,0.3) 22%,
+  rgba(28,28,28,0.5) 100%
+);
 
-// -- Variables & Mixins --
-  @mixin debug-box {
-    box-shadow: 0 0 3px 1px rgba(255,0,152,0.9) inset;
-  }
+$gradient-hover: linear-gradient(125deg,
+  rgba(37,37,37,0.24) 0%,
+  rgba(28,28,28,0.6) 33%,
+  rgba(28,28,28,0.6) 66%,
+  rgba(28,28,28,0.36) 100%
+);
 
-  @mixin gloss-bg {
-    background: rgba(30,31,33,0.6);
-    backdrop-filter: blur(24px) saturate(0.8);
-  }
+$gradient-selected: linear-gradient(125deg,
+  rgba(37,37,37,0.4) 0%,
+  rgba(32,32,32,0.8) 50%,
+  rgba(32,32,32,0.8) 50%,
+  rgba(37,37,37,0.4) 100%
+);
 
-  $nav-y: calc(42px + 1dvw);
+$nav-y: calc(42px + 1dvw);
+
+// -- Mixins --
+@mixin debug-box {
+  box-shadow: 0 0 3px 1px rgba(255,0,152,0.9) inset;
+}
+
+@mixin gloss-bg {
+  background: rgba(30,31,33,0.6);
+  backdrop-filter: blur(24px) saturate(0.8);
+}
+
+@mixin alt-bg {
+  &:nth-of-type(odd) { background: $gradient-odd }
+  &:nth-of-type(even) { background: $gradient-even }
+  transition: 0.15s all ease-in-out;
+  &:hover { background: $gradient-hover }
+  &:active { background: $gradient-selected }
+}
+
 
 // -- Root container --
 body {
@@ -65,7 +105,7 @@ body {
   nav {
     position: fixed;
     display: flex;
-    justify-content: center;
+
     bottom: 0;
     z-index: 4;
     @include gloss-bg;
@@ -127,31 +167,100 @@ body {
       }
     } // Playlist
 
-    #Posts {
-      display: grid;
-      @include gloss-bg;
-      border-radius: 8px;
-      max-width: 500px;
-      margin: auto;
-      width: calc(100dvw - 2rem);
-      a {
-        text-align: center;
-        font-size: 1.8rem;
-        line-height: 2.6rem;
-      }
-    }
-
     #Post {
       display: grid;
-      justify-content: center;
       @include gloss-bg;
-      max-width: 600px;
+      max-width: calc(400px + 1dvw);
       margin: auto;
       width: calc(100dvw - 2rem);
-      h2, p, button {
-        color: rgb(252,252,252);
-        text-align: center;
+      padding: 8px 8px 0 8px;
+      border-radius: 8px;
+
+      h2 {
+        font-weight: 600;
+        color: rgb(192,192,192);  
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+        padding: 0 4px;
       }
+      p {
+        text-indent: 4px;
+        padding: 0 8px;
+        font-size: 1.2rem;
+        color: rgb(242,242,242);
+        font-weight: 100;
+        font-size: 1rem;
+      }
+
+      &.Browser {
+        display: grid;
+        @include gloss-bg;
+        border-radius: 8px;
+        max-width: 500px;
+        margin: auto;
+        width: calc(100dvw - 2rem);
+       
+        h2 {
+          letter-spacing: 2px;
+          font-size: 1rem;
+          line-height: 1rem;
+        }
+       
+        a {
+          font-size: 1.8rem;
+          line-height: 2.6rem;
+        }
+      }
+
+      &.Bands {
+        padding: 8px 24px 0 24px;
+        border-radius: 8px;
+        max-width: 400px;
+       
+        h2 {
+          text-align: center;
+          line-height: 2rem;
+          color: rgb(128,128,128);
+          &:hover { color: rgb(182,182,182); }
+        }
+       
+        .Band {
+          display: flex;
+          justify-content: space-between;
+          @include alt-bg;
+          h3, p {
+            width: 50%;
+            text-align: center;
+            text-shadow: 0 0 2px rgba(0,0,0,0.4);
+          }
+          h3 {
+            font-weight: 200;
+            color: rgb(192,192,192);
+            letter-spacing: 2px;
+          }
+        }
+      } // Bands
+
+      &.Drone {
+        section {
+          padding: 4px 0;
+          &:hover {
+            h2 {
+              color: rgb(192,192,192);
+            }
+          }
+          h2 {
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+            color: rgb(129,129,129);
+            transition: 0.15s color ease-in;
+          }
+          p {
+            text-indent: 4px;
+            padding: 0 8px;
+          }
+        }
+      } // Drone
     }
     
     #Links {
@@ -159,7 +268,8 @@ body {
       flex-wrap: wrap;
       @include gloss-bg;
       justify-content: space-around;
-      max-width: 800px;
+      max-width: 720px;
+      width: calc(100dvw - 2rem);
       margin: auto;
       border-radius: 8px;
       a {
@@ -167,10 +277,9 @@ body {
         font-size: 1.25rem;
         min-width: 94px;
         padding-right: 8px;
-        text-align: center;
         &:first-of-type { min-width: 42px; }
       }
-      &.Home {
+      &.Browser {
         display: grid;
         border: 3px solid rgb(99,99,99,0);
         text-align: center;
@@ -298,6 +407,9 @@ body {
         input {
           text-align: center;
           width: 100%;
+          color: rgb(192,192,192);
+          font-size: 0.9rem;
+          &:hover { color: rgb(242,242,242); }
         }
       }
     } // Settings

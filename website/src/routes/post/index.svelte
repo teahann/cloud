@@ -6,7 +6,7 @@
 </script>
 
 
-<div id="Posts">
+<div id="Post" class="Browser">
   {#each posts as [name, url]}
     <a href={`./post/${url}`}>{name}</a>
   {/each}
