@@ -1,0 +1,148 @@
+html { 
+  font-family: Courier New, Lucida Console, Monaco;
+  background: rgb(30,31,33);
+}
+ 
+body, h2, h3, h5, p {
+  margin: 0;
+  color: rgb(252,252,252);
+}
+
+a {
+  text-decoration: unset;
+  color: rgb(212,212,215);
+  font-size: 2.4rem;
+  &:hover { color: rgb(222,252,255); }
+} 
+
+button, input, textarea {
+  background: unset;
+  border: unset;
+  padding: unset;
+  outline: unset;
+  color: rgb(252,252,252);
+}
+
+button {
+  cursor: pointer;
+  line-height: 2.2rem;
+  font-size: 1.8rem;
+  color: rgb(236,236,236);
+  &:hover { color: rgb(252,252,252); }
+}
+
+$gradient-even: linear-gradient(-45deg,
+  rgba(37,37,37,0.1) 0%,
+  rgba(38,38,38,0.3) 60%,
+  rgba(38,38,38,0.5) 100%
+);
+
+$gradient-odd: linear-gradient(125deg,
+  rgba(37,37,37,0.1) 0%,
+  rgba(28,28,28,0.3) 40%,
+  rgba(28,28,28,0.5) 100%
+);
+
+$gradient-hover: linear-gradient(125deg,
+  rgba(28,28,28,0.3) 0%,
+  rgba(37,37,37,0.9) 50%,
+  rgba(28,28,28,0.3) 100%
+);
+
+$gradient-selected: linear-gradient(125deg,
+  rgba(37,37,37,0.4) 0%,
+  rgba(32,32,32,0.8) 50%,
+  rgba(37,37,37,0.4) 100%
+);
+
+@mixin debug-box($color: rgba(255,0,152,0.9)) {
+  box-shadow: 0 0 3px 1px $color inset;
+}
+
+@mixin gloss-bg {
+  background: rgba(50,52,54,0.5);
+  backdrop-filter: blur(24px) saturate(0.8);
+}
+
+@mixin alt-bg {
+  &:nth-of-type(odd) { background: $gradient-odd }
+  &:nth-of-type(even) { background: $gradient-even }
+  &:hover { background: $gradient-hover }
+  &:active { background: $gradient-selected }
+}
+
+@import 'account', 'post', 'edit';
+
+body {
+  display: grid;
+  align-items: center;
+  min-height: calc(100dvh - 2.65rem);
+  padding-top: 2.65rem;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    top: 4px;
+    left: 4px;
+    width: calc(100dvw - 8px);
+    position: fixed;
+
+    .Path, .Account {
+      @include gloss-bg;
+      border-radius: 6px;
+      display: flex;
+      padding: 0 4px;
+
+      a {
+        line-height: 2rem;
+        font-size: 1.4rem;
+        code {
+          color: rgb(57,57,57);
+          padding: 0 4px;
+        }
+      }
+    }
+
+    .Path {
+      overflow-x: auto;
+      max-width: calc(100dvw - 3.725rem);
+    }
+  }
+
+  #Home {
+    display: flex;
+    justify-content: center;
+    a {
+      font-size: calc(100dvw / 6);
+      text-shadow: 0 0 12px rgba(252,252,252,0);
+      transition: 0.15s all ease-in-out;
+      &:hover { text-shadow: 0 0 12px rgba(252,252,252,0.4); }
+    }
+  }
+
+  #List {
+    @include gloss-bg;
+    display: grid;
+    text-align: center;
+    max-width: 550px;
+    width: calc(100dvw - 2rem);
+    margin: auto;
+    a { @include alt-bg; }
+    h5 {
+      color: rgb(192,192,192);
+      font-weight: 200;
+      font-size: 1rem;
+      line-height: 1.4rem;
+    }
+  }
+
+  #Loading {
+    display: flex;
+    justify-content: center;
+    img {
+      opacity: 0.6;
+      height: 256px;
+    }
+  }
+}

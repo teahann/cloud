@@ -1,7 +1,6 @@
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import routify from '@roxi/routify/vite-plugin'
 import { defineConfig } from 'vite'
-import { mdsvex } from 'mdsvex'
 import { resolve } from 'path'
 import postCssNesting from 'postcss-nesting'
 
@@ -17,11 +16,9 @@ export default defineConfig({
                 dev: !production,
                 hydratable: !!process.env.ROUTIFY_SSR_ENABLE,
             },
-            extensions: ['.md', '.svelte'],
-            preprocess: [mdsvex({ extension: 'md' })],
+            extensions: ['.svelte']
         }),
     ],
     css: { postcss: { plugins: [postCssNesting()] } },
-
-    server: { port: 1337 },
+    server: { port: 1337 }
 })

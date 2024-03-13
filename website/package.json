@@ -16,6 +16,7 @@
     "vite": "^4.4.1"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.39.7",
     "postcss-nesting": "^11.3.0"
   }
 }

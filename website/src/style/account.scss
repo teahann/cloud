@@ -1,0 +1,44 @@
+#Account {
+  @include gloss-bg;
+  width: calc(100dvw - 2rem);
+  margin: auto;
+  max-width: 400px;
+  border-radius: 8px;
+  padding: 8px 0;
+
+  .Error, h3 {
+    text-align: center;
+    line-height: 1.5rem;
+    padding-bottom: 8px;
+  }
+
+  .Fields {
+    display: grid;
+    grid-gap: 2px;
+    justify-content: center;
+    padding-bottom: 8px;
+    input {
+      color: rgb(252,252,252);
+      text-align: center;
+      font-size: 1.5rem;
+      background: rgba(50,51,53,0.5);
+    }
+  }
+
+  .Actions {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      padding: 0 8px;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+      border-radius: 4px;
+      background: rgba(128,128,128,0);
+      transition: 0.2s all ease-in;
+      &:hover {
+        background: rgba(128,128,128,0.5);
+      }
+    }
+  }
+}

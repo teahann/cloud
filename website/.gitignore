@@ -1,3 +1,4 @@
+.env
 .routify
 .history
 node_modules

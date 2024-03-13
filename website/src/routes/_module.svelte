@@ -1,30 +1,39 @@
 <script>
-  import { onMount } from 'svelte'
-  import { isActive } from '@roxi/routify'
-  import { load_bg } from '@/utils/bg.js'
-  
-  // Load bg url from localStorage
-  onMount(() => {
-    document.readyState === 'complete' ? load_bg() : window.addEventListener('load', load_bg);
-  })
+  import { onMount } from 'svelte';
+  import { writable } from 'svelte/store';
+  import { afterUrlChange } from '@roxi/routify';
+  import { supabase } from '@/utils/supabase.js';
+  import { user } from '@/utils/user.js';
 
-  const links = [
-    ['🏡', 'index', 'Home'],
-    ['🎧', 'playlist', 'Curated YouTube Videos'],
-    ['📝', 'post', 'Random words assembled together'],
-    ['🔗', 'link', 'Other sites to check out'],
-    ['🛒', 'shop', 'Buy stuff'],
-    ['🎼', 'daw', 'Play a synth of drum kit'],
-    ['💾', 'settings', 'Customize this site']
-  ]
+  let path = writable([]);
+
+  onMount(() => {
+    supabase.auth.onAuthStateChange((_, sesh) => user.set(sesh?.user || []));
+    updatePath(window.location.pathname);
+  });
+
+  $afterUrlChange(({ route }) => updatePath(route.url));
+
+  function updatePath(url) {
+    const pathArray = url.split('/').filter(Boolean).map((page, i, arr) => ({
+      name: page,
+      url: `/${arr.slice(0, i + 1).join('/')}`
+    }));
+    if (pathArray.length > 0 && pathArray[pathArray.length - 1].name === 'index') pathArray.pop()
+    path.set(pathArray);
+  }
 </script>
 
-<main>
-  <slot />
-</main>
-
 <nav>
-  {#each links as [label, url, desc]}
-    <a href={`/${url}`} class:Open={$isActive(url)} title={desc}>{label}</a>
-  {/each}
+  <div class="Path">
+    <a href="/" title="Home">🏡</a>
+    {#each $path as { name, url }}
+      <a href={url}><code>/</code>{name}</a>
+    {/each}
+  </div>
+  <div class="Account">
+    <a href="/account">🗝️</a>
+  </div>
 </nav>
+
+<slot />

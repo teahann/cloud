@@ -1,0 +1,32 @@
+#Post {
+  border-radius: 6px;
+  max-width: 600px;
+  margin: auto;
+  width: calc(100dvw - 2rem);
+
+  &.Drone {    @include gloss-bg;
+  }
+  &.Wavebands {
+    max-width: 320px;
+    text-align: center;
+
+    h2 {
+      font-weight: 200;
+      color: rgb(216,216,216);
+      line-height: 2.2rem;
+      background: rgb(30,31,33);
+    }
+
+    .Band {
+      display: flex;
+      @include alt-bg;
+      h3, p {
+        width: 50%;
+        line-height: 1.8rem;
+        text-align: center;
+      }
+      h3 { font-weight: 400 }
+    }
+
+  }
+}
