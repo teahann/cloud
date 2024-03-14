@@ -1,0 +1,1 @@
+<!-- TODO:: Ability to search logged in user & admin's compounds -->

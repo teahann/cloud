@@ -17,7 +17,7 @@
 
   table {
     width: 100%;
-    max-width: 340px;
+    max-width: 380px;
     margin: auto;
     border-spacing: 0;
     tr {
@@ -53,6 +53,17 @@
           }
         }
       } // td
+      
+      &.Tags {
+        cursor: pointer;
+        .Tag {
+          display: block;
+          text-indent: 8px;
+          font-size: 1rem;
+          line-height: 1.15rem;
+        }
+      } // Tags
+
     } // tr
   } // table
 

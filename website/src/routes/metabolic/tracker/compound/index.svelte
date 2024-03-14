@@ -14,8 +14,7 @@
   const get_user_compounds = async() => {
     try {
       loading = true;
-      const { data, error } = await supabase.from('compound')
-        .select('name').eq('user_id', $user.id)
+      const { data, error } = await supabase.from('compound').select('name').eq('user_id', $user.id)
       if (error) { throw error } else { user_compounds.set(data) }
     } catch (err) {
       error_message = err.message;

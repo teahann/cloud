@@ -3,14 +3,19 @@
   import { writable } from 'svelte/store';
   import { supabase } from '@/utils/supabase.js';
   import { user } from '@/utils/user.js';
-  import { datetime_to_sql, sql_to_datetime } from '@/utils/user.js';
+  import { datetime_to_sql, sql_to_datetime } from '@/utils/dates.js';
 
   export let report_number;
 
-  onMount(() => get_report());
+  onMount(() => {
+    get_user_report();
+    get_user_compounds();
+  })
   
   let loading = true;
   let error_message = null;
+  let compound_viewer = false;
+  const user_compounds = writable([])
   const report = writable({});
   let edited = {};
 
@@ -25,10 +30,26 @@
     }
   }
 
-  const get_report = async() => {
+  const get_user_compounds = async() => {
+    try {
+      loading = true;
+      const { data, error } = await supabase.from('compound').select('name').eq('user_id', $user.id)
+      if (error) {
+        throw error
+      } else {
+        user_compounds.set(data)
+      }
+    } catch (err) {
+      error_message = err.message;
+    } finally {
+      loading = false;
+    }
+  }
+
+  const get_user_report = async() => {
     try {
       const { data, error } = await supabase.from('report')
-        .select('title, article, start_time, end_time, compound_ids')
+        .select('title, article, start_time, end_time, compounds')
         .eq('report_number', report_number).eq('user_id', $user.id);
       if (error) {
         throw error;
@@ -70,7 +91,10 @@
     }
   };
 
-  const tgl_compound_editor = () => console.log('Open/close compound editor')
+  const tgl_compound_editor = () => compound_viewer = !compound_viewer
+
+  // TODO
+  $: compound_added = (compound) => edited.compounds.includes(compound)
 
 </script>
 
@@ -79,36 +103,55 @@
     <img src="/assets/loading.svg" alt="Loading" />
   </div>
 {:else}
-  <div id="Edit" class="Report">
-    {#if error_message}
-      <p class="Error">{error_message}</p>
-    {/if}
-    <h3>Editing report {report_number}</h3>
-    <table>
-      <tr>
-        <th>Title</th>
-        <td><input type="text" bind:value={edited.title} /></td>
-      </tr>
-      <tr>
-        <th>Start</th>
-        <td><input type="datetime-local" bind:value={edited.start_time}/></td>
-      </tr>
-      <tr>
-        <th>End</th>
-        <td><input type="datetime-local" bind:value={edited.end_time}/></td>
-      </tr>
-      <tr on:click={tgl_compound_editor}>
-        <th>Compounds</th>
-        <td class="Expand">(Coming soon)</td>
-      </tr>
-    </table>
-    <div class="Article">
-      <label for="article">Article</label>
-      <textarea bind:value={edited.article} id="article" placeholder="(Optional)"></textarea>
+  {#if compound_viewer}
+    <div id="Modal" class="Compounds">
+      <div class="Form">
+        <h3>Editing report compounds</h3>
+        <table>
+          {#each $user_compounds as compound}
+            <tr>
+              <th>(TODO: added state)</th>
+              <td>{compound.name}</td>
+            </tr>
+          {/each}
+        </table>
+        <div class="Actions">
+          <button on:click={tgl_compound_editor}>Close</button>
+        </div>
+      </div>
     </div>
-    <div class="Actions">
-      <button on:click={remove}>Delete</button>
-      <button on:click={update}>Update</button>
+  {:else}
+    <div id="Edit" class="Report">
+      {#if error_message}
+        <p class="Error">{error_message}</p>
+      {/if}
+      <h3>Editing report {report_number}</h3>
+      <table>
+        <tr>
+          <th>Title</th>
+          <td><input type="text" bind:value={edited.title} /></td>
+        </tr>
+        <tr>
+          <th>Start</th>
+          <td><input type="datetime-local" bind:value={edited.start_time}/></td>
+        </tr>
+        <tr>
+          <th>End</th>
+          <td><input type="datetime-local" bind:value={edited.end_time}/></td>
+        </tr>
+        <tr on:click={tgl_compound_editor}>
+          <th>Compounds</th>
+          <td class="Expand">(Click to expand)</td>
+        </tr>
+      </table>
+      <div class="Article">
+        <label for="article">Article</label>
+        <textarea bind:value={edited.article} id="article" placeholder="(Optional)"></textarea>
+      </div>
+      <div class="Actions">
+        <button on:click={remove}>Delete</button>
+        <button on:click={update}>Update</button>
+      </div>
     </div>
-  </div>
+  {/if}
 {/if}

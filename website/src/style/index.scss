@@ -71,7 +71,7 @@ $gradient-selected: linear-gradient(125deg,
   &:active { background: $gradient-selected }
 }
 
-@import 'account', 'post', 'edit';
+@import 'account', 'post', 'edit', 'modal';
 
 body {
   display: grid;
@@ -87,6 +87,7 @@ body {
     left: 4px;
     width: calc(100dvw - 8px);
     position: fixed;
+    z-index: 5;
 
     .Path, .Account {
       @include gloss-bg;
@@ -134,6 +135,22 @@ body {
       font-weight: 200;
       font-size: 1rem;
       line-height: 1.4rem;
+    }
+    &.Compounds {
+      max-width: 400px;
+      table {
+        max-width: unset;
+        tr {
+          @include alt-bg;
+          td {
+
+            a {
+              display: block;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
     }
   }
 
