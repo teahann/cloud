@@ -1,12 +1,11 @@
 <script>
   import { createEventDispatcher } from 'svelte'
 
-  export let all_tags, compound_tags;
-
-  let filtered_tags = all_tags
-  let search_query = ''
+  export let modal_title, all_tags, compound_tags;
 
   const dispatch = createEventDispatcher()
+  let filtered = all_tags
+  let search = ''
 
   const close_modal = () => dispatch('close', { tags: compound_tags })
 
@@ -18,9 +17,9 @@
     }
   }
 
-  const filter_tags = () => {
-    filtered_tags = all_tags.filter(tag => {
-      return tag.name.toLowerCase().includes(search_query.toLowerCase())
+  const filter = () => {
+    filtered = all_tags.filter(tag => {
+      return tag.name.toLowerCase().includes(search.toLowerCase())
     })
   }
 
@@ -30,16 +29,14 @@
 
 <div id="Modal" class="Editor">
   <div class="Form">
-    <h3>Editing compound tags</h3>
+    <h3>{modal_title}</h3>
     <div class="Search">
       <label for="tag_search">Search</label>
-      <input id="tag_search"
-        on:keyup={filter_tags}
-        bind:value={search_query}
+      <input id="tag_search" on:keyup={filter} bind:value={search}
       />
     </div>
     <table>
-      {#each filtered_tags as tag}
+      {#each filtered as tag}
         <tr on:click={() => tgl_tag(tag.name)}>
           <th>{contains_tag(tag.name) ? '✔' : '✖️'}</th>
           <td>{tag.name}</td>

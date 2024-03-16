@@ -14,12 +14,17 @@
   .Form {
     backdrop-filter: blur(8px);
     width: calc(100dvw - 2rem);
-    max-width: 720px;
+    max-width: 360px;
     margin: auto;
     border-radius: 8px;;
     box-shadow: rgba(128,128,128,0.4) 0px 1px 8px;
 
-    h3 { padding: 0 8px; }
+    h3 {
+      text-align: center;
+      color: rgba(128,128,128,0.9);
+      font-weight: 200;
+      line-height: 2rem;
+    }
 
     .Search {
       display: flex;

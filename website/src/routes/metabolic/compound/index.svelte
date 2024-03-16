@@ -25,14 +25,14 @@
 
 </script>
 
-<div id="List">
+<div id="List" class="Compounds">
   {#if error_message}
     <p class="Error">{error_message}</p>
   {/if}
-  <a href="/metabolic/tracker/compound/create" class="Add">Add new</a>
+  <a href="/metabolic/compound/create" class="Add">Add new</a>
   <h5>Your compounds</h5>
   {#each $user_compounds as c}
-    <a href={`/metabolic/tracker/compound/edit/${c.name}`} class="Edit">{c.name}</a>
+    <a href={`/metabolic/compound/edit/${c.name}`} class="Edit">{c.name}</a>
   {/each}
   {#if $report_compounds.length}
     <h5>Report compounds</h5>

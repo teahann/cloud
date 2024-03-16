@@ -29,9 +29,9 @@
   {#if error_message}
     <p class="Error">{error_message}</p>
   {/if}
-  <a href="/metabolic/tracker/report/create" class="Add">Add new</a>
+  <a href="/metabolic/report/create" class="Add">Add new</a>
   <h5>Your reports</h5>
   {#each $user_reports as r}
-    <a href={`/metabolic/tracker/report/edit/${r.report_number}`} class="Edit">{r.title}</a>
+    <a href={`/metabolic/report/edit/${r.report_number}`} class="Edit">{r.title}</a>
   {/each}
 </div>

@@ -18,7 +18,7 @@
   }
 </script>
 
-<div id="Post" class="Wavebands">
+<div id="Data" class="Wavebands">
   {#each Object.entries(frequencies) as [band, range]}
     <div class="Band">
       <h3>{band}</h3>

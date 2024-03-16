@@ -1,3 +1,5 @@
 <div id="List">
-  <a href="/metabolic/tracker">Tracker</a>
+  <a href="./metabolic/compound">Compound</a>
+  <a href="./metabolic/report">Report</a>
+  <a href="./metabolic/tag">Tag</a>
 </div>

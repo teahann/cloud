@@ -1,5 +1,3 @@
-<!-- NOTE:: Add boolean for "FDA" default compounds -->
-<!-- (instead of by user_id) -->
 <script>
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store'
@@ -27,20 +25,20 @@
 
 </script>
 
-<div id="List" class="Compounds">
+<div id="Data" class="Compounds">
   {#if error_message}
     <p class="Error">{error_message}</p>
   {/if}
   <h3>Compounds</h3>
   <table>
     <tr>
-      <th>Name</th>
-      <th>Pubchem ID</th>
+      <th class="Name">Name</th>
+      <th class="Pubchem">Pubchem</th>
     </tr>
     {#each $compounds as compound}
       <tr>
-        <td>{compound.name}</td>
-        <td class="Link">
+        <td class="Name">{compound.name}</td>
+        <td class="Pubchem Link">
           <a href={PUBCHEM_URL + compound.pubchem_id}
             target="_blank">
             {compound.pubchem_id}

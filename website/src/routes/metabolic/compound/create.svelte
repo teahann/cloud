@@ -7,6 +7,8 @@
 
   const user_tags = writable([])
   const filtered_tags = writable([])
+  const modal_title = ""
+
   let loading = false;
   let error_message = null;
   let view_tag_editor = false;
@@ -61,11 +63,7 @@
   };
 
   const make_query = () => {
-    let query = {
-      name: compound.name,
-      user_id: $user.id,
-      tags: compound.tags
-    };
+    let query = { name: compound.name, user_id: $user.id, tags: compound.tags };
     for (const [k, v] of Object.entries(compound.sources)) {
       if (v !== '') query[`${k.toLowerCase().split(/(?=[A-Z])/).join('_')}_id`] = v
     }
@@ -113,7 +111,12 @@
   </div>
 {:else}
   {#if view_tag_editor}
-    <Tags_Modal all_tags={$user_tags} compound_tags={compound.tags} on:close={save_tags} />
+    <Tags_Modal
+      modal_title={"New compoud's tags"}
+      all_tags={$user_tags}
+      compound_tags={compound.tags}
+      on:close={save_tags}
+    />
   {/if}
   <div id="Edit">
     {#if error_message}

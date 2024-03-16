@@ -3,7 +3,9 @@
 </script>
 
 <div id="List">
-  <a href="/data" class:Open={$isActive('data')}>Data</a>
-  <a href="/metabolic" class:Open={$isActive('metabolic')}>Metabolic</a>
-  <a href="/resources" class:Open={$isActive('resources')}>Resources</a>
+  <a href="/cardio">Cardio</a>
+  <a href="/environment">Environment</a>
+  <a href="/metabolic">Metabolic</a>
+  <a href="/sleep">Sleep</a>
+  <a href="/social">Social</a>
 </div>

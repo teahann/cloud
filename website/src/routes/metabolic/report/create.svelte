@@ -3,7 +3,7 @@
   import { onMount } from 'svelte'
   import { supabase } from '@/utils/supabase.js'
   import { user } from '@/utils/user.js'
-  import Comopunds_Modal from '@/components/Comopunds_Modal.svelte'
+  // import Comopunds_Modal from '@/components/Comopunds_Modal.svelte'
   import { datetime_to_sql, today_datetime} from '@/utils/dates.js'
 
   onMount(() => get_report_number())

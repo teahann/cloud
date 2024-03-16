@@ -1,6 +1,11 @@
 html { 
   font-family: Courier New, Lucida Console, Monaco;
   background: rgb(30,31,33);
+  // background: url(https://dchqsxvlazultvsphmau.supabase.co/storage/v1/object/public/photo/010.webp) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
  
 body, h2, h3, h5, p {
@@ -60,8 +65,8 @@ $gradient-selected: linear-gradient(125deg,
 }
 
 @mixin gloss-bg {
-  background: rgba(50,52,54,0.5);
-  backdrop-filter: blur(24px) saturate(0.8);
+  // background: rgba(50,52,54,0);
+  backdrop-filter: blur(12px) saturate(0.8);
 }
 
 @mixin alt-bg {
@@ -71,7 +76,7 @@ $gradient-selected: linear-gradient(125deg,
   &:active { background: $gradient-selected }
 }
 
-@import 'account', 'post', 'edit', 'modal';
+@import 'account', 'edit', 'modal';
 
 body {
   display: grid;
@@ -90,6 +95,7 @@ body {
     z-index: 5;
 
     .Path, .Account {
+      background: rgba(30,31,33,0.3);
       @include gloss-bg;
       border-radius: 6px;
       display: flex;
@@ -99,7 +105,7 @@ body {
         line-height: 2rem;
         font-size: 1.4rem;
         code {
-          color: rgb(57,57,57);
+          color: rgba(192,192,192,0.2);
           padding: 0 4px;
         }
       }
@@ -135,24 +141,107 @@ body {
       font-weight: 200;
       font-size: 1rem;
       line-height: 1.4rem;
-    }
+    } // h5
+    &.Compounds {
+      .Edit {
+        max-width: inherit;
+        font-size: 1.6rem;
+      }
+    } // Compounds
+  } // List
+
+  #Data {
+    margin: auto;
+
     &.Compounds {
       max-width: 400px;
+      @include gloss-bg;
+     
       table {
         max-width: unset;
+        border-spacing: 0 1px;
+        text-align: center;
         tr {
           @include alt-bg;
-          td {
-
-            a {
-              display: block;
-              font-size: 1rem;
-            }
+          line-height: 1.15rem;
+          &:hover {
+            .Name { color: rgba(252,252,252,0.9) }
           }
+          th {
+            position: sticky;
+            top: 0;
+            background: rgb(30,31,33);
+            line-height: 1.8rem;
+          }
+          td {
+            &.Name {
+              color: rgba(242,242,242,0.6);
+              transition: 0.1s all ease-in-out;
+            }
+
+            &.Link {
+              a {
+                display: block;
+                font-size: 1rem;
+              }
+            } // a
+          } // td
+        } // tr
+      } // table
+    } // Compounds
+
+    &.Drone {
+      display: grid;
+      grid-gap: 2px;
+
+      section {
+        padding: 0 8px;
+        @include gloss-bg;
+        &:hover {
+          h2 { color: rgb(242,242,242) }
+        }
+        h2 {
+          color: rgb(172,172,172);
+          transition: 0.2s all ease-in-out;
+        }
+
+        p {
+          padding: 0 12px;
+          line-height: 1.25rem;
+          color: rgb(216,216,216);
+          background: rgba(30,31,33,0);
+          transition: 0.2s all ease-in-out;
+          cursor: default;
+          &:hover {
+            background: rgba(30,31,33,1)
+          }
+
         }
       }
-    }
-  }
+
+    } // Drone
+
+    &.Wavebands {
+      max-width: unset;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+      @include gloss-bg;
+
+      .Band {
+        display: flex;
+        @include alt-bg;
+        h3, p {
+          width: 50%;
+          line-height: 1.8rem;
+          text-align: center;
+        }
+        h3 { font-weight: 400 }
+      }
+
+    } // Wavebands
+
+  } // Data
 
   #Loading {
     display: flex;
