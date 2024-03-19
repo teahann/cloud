@@ -1,0 +1,52 @@
+$inner: 6px;
+$gap: 2px;
+$outer: calc($inner + $gap);
+
+#List {
+  display: grid;
+  max-width: 600px;
+  width: calc(100dvw - 2rem);
+  margin: $header-height auto;
+  background: rgba(16,16,16,0.2);
+  padding: $gap;
+  grid-gap: 1px;
+  border-radius: $outer;
+  transition: 0.4s all ease-in-out;
+
+  &:hover {
+    background: rgba(16,16,16,0.5);
+    a { color: rgb(174,174,174) }
+  }
+
+  .Error {
+    color: rgb(150,50,50);
+    text-align: right;
+  }
+
+  h5 {
+    text-align: center;
+    padding: 0 8px;
+    color: rgb(128,128,128);
+  }
+
+  a {
+    @include alt-bg;
+    @include gloss-bg;
+    text-align: center;
+    line-height: calc(2.4rem + 1dvh);
+    font-size: 1.8rem;
+    color: rgb(142,142,142);
+    text-shadow: 0 0 2px rgba(0,0,0,0);
+    transition: 0.18s all ease-in-out;
+
+    &:hover {
+      font-size: calc(1.8rem + 2px);
+      color: rgb(255,255,255);
+      text-shadow: 0 0 4px rgba(0,220,0,1);
+    }
+    
+    &:last-of-type { border-radius: 0 0 $inner $inner }
+    &:first-of-type { border-radius: $inner $inner 0 0 }
+  } // a
+
+}

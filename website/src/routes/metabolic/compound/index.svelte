@@ -17,7 +17,8 @@
       const { data, error } = await supabase.from('compound').select('name').eq('user_id', $user.id)
       if (error) { throw error } else { user_compounds.set(data) }
     } catch (err) {
-      error_message = err.message;
+      error_message = 'Database error';
+      console.error(err.message)
     } finally {
       loading = false;
     }

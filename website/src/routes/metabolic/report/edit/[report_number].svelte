@@ -53,7 +53,7 @@
     try {
       loading = true
       const { data, error } = await supabase.from('report')
-        .select('title, article, start_time, end_time, compounds')
+        .select('title, article, start_time, end_time')
         .eq('report_number', report_number).eq('user_id', $user.id);
       if (error) {
         throw error;
@@ -119,7 +119,7 @@
       on:close={save_compounds}
     />
   {:else}
-    <div id="Edit" class="Report">
+    <div id="Edit" class="Report Compounds">
       {#if error_message}
         <p class="Error">{error_message}</p>
       {/if}

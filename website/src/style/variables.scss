@@ -1,0 +1,43 @@
+$nav-link-height: 2.2rem;
+$nav-gap: 2px;
+$header-height: calc($nav-link-height + ($nav-gap * 2));
+$content-height: calc(100dvw - $header-height);
+
+$gradient-even: linear-gradient(-45deg,
+  rgba(37,37,37,0.15) 0%,
+  rgba(38,38,38,0.3) 50%,
+  rgba(38,38,38,0.5) 100%
+);
+
+$gradient-odd: linear-gradient(45deg,
+  rgba(37,37,37,0.15) 0%,
+  rgba(28,28,28,0.3) 50%,
+  rgba(28,28,28,0.5) 100%
+);
+
+$gradient-hover: linear-gradient(135deg,
+  rgba(22,22,22,0.45) 0%,
+  rgba(34,34,34,0.9) 50%,
+  rgba(22,28,22,0.45) 100%
+);
+
+$gradient-active: linear-gradient(125deg,
+  rgba(32,32,32,0.4) 0%,
+  rgba(21,21,21,0.2) 50%,
+  rgba(32,32,32,0.4) 100%
+);
+
+@mixin debug-box($color: rgba(255,0,152,0.9)) {
+  box-shadow: 0 0 3px 1px $color inset;
+}
+
+@mixin gloss-bg {
+  backdrop-filter: blur(6px);
+}
+
+@mixin alt-bg {
+  &:nth-of-type(odd) { background: $gradient-odd }
+  &:nth-of-type(even) { background: $gradient-even }
+  &:hover { background: $gradient-hover }
+  &:active { background: $gradient-active }
+}

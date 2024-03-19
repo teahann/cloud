@@ -1,4 +1,3 @@
-<!-- TODO:: Compound Modal -->
 <script>
   import { onMount } from 'svelte'
   import { supabase } from '@/utils/supabase.js'

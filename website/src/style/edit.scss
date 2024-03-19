@@ -1,126 +1,38 @@
 #Edit {
+  max-width: 800px;
   @include gloss-bg;
-  background: rgba(52,53,55,0.6);
-  max-width: 400px;
   margin: auto;
-  width: calc(100dvw - 2rem);
-
-  .Error {
-    color: rgb(252,232,232);
-    text-align: center;
-  }
 
   h3 {
-    text-align: center;
-    font-size: 1.4rem;
-    line-height: 2.6rem;
+    color: rgb(192,192,192);
   }
 
   table {
-    width: 100%;
-    max-width: 380px;
-    margin: auto;
+    max-width: 400px;
     border-spacing: 0;
     tr {
-      @include alt-bg;
-      &:hover {
-        th { color: rgb(252,252,252) }
-      }
       th {
-        text-align: right;
-        color: rgb(192,192,192);
-        transition: 0.15s all ease-in-out;
-        a, label { font-size: 1.25rem; }
+        a {
+          @include debug-box;
+          line-height: 1.5rem;
+          color: rgb(236,236,252);
+          display: block
+        }
       }
       td {
-        &.Expand {
-          text-align: center;
-          color: rgb(128,128,128);
-          cursor: pointer;
-          transition: 0.15s all ease-in-out;
-          &:hover { color: rgb(216,216,216); }
-        }
+        font-size: 1.5rem;
         input {
-          text-indent: 8px;
-          color: rgb(252,252,252);
-          font-size: 1rem;
+          background: rgb(30,31,33);
+          font-size: 1.25rem;
           line-height: 1.25rem;
-          width: 100%;
-
-          &[type="datetime-local"] {
-            text-indent: 6px;
-            color: rgb(3,3,3);
-            filter: invert(1);
-          }
         }
-      } // td
-      
-      &.Tags {
-        cursor: pointer;
-        .Tag {
-          display: block;
-          text-indent: 8px;
+        &.Tags {
           font-size: 1rem;
-          line-height: 1.15rem;
-        }
-      } // Tags
-
-    } // tr
-  } // table
-
-  .Actions {
-    display: flex;
-    justify-content: space-around;
-
-    button {
-      font-size: 1.5rem;
-      width: 40%;
-    }
-  }
-
-  &.Report {
-    max-width: 720px;
-
-    table {
-      tr {
-        td {
-          &.Compounds {
-            display: grid;
-            text-align: center;
+          p {
+            color: red;
           }
         }
       }
     }
-
-    .Article {
-      display: flex;
-      justify-content: center;
-      margin-right: 1.5rem;
-      label {
-        text-align: center;
-        line-height: 1.5rem;
-        color: rgb(128,128,128);
-        writing-mode: vertical-rl;
-        text-orientation: upright;
-      }
-      textarea {
-        background: rgba(60,61,63,0.6);
-        text-indent: 4px;
-        padding: 2px 4px;
-        font-size: 1rem;
-        line-height: 1.5rem;
-        min-height: 128px;
-        max-height: 340px;
-        min-width: 300px;
-        width: 50%;
-        max-width: 712px;
-        &::placeholder {
-          color: rgb(92,92,92);
-          text-align: center;
-          line-height: 128px;
-        }
-      }
-    }
   }
-
 }

@@ -1,0 +1,22 @@
+#Loading {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  z-index: 6;
+  bottom: 0;
+  right: 0;
+  padding: 4px;
+
+  h5{
+    color: rgb(142,142,142);
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  img {
+    height: 2rem;
+    opacity: 0.5;
+  }
+
+}

@@ -1,0 +1,84 @@
+model bed {
+  id              int8
+  user_id         uuid
+  created         timestampz
+  name            text
+  description     text
+}
+
+model cardio {
+  id              int8
+  user_id         uuid
+  created         timestampz
+  title           text
+  source          text
+}
+
+model compound {
+  id              int8
+  user_id         uuid
+  created         timestampz
+  tags            tag[]
+  name            text
+  chemspider      text
+  drugbank        text
+  chemicalbook    text
+  nist            text
+  wikipedia       text
+  pubchem         text
+  chembl          text
+  chebi           text
+  zinc            text
+  source          text
+}
+
+model event {
+  id              int8
+  user_id         uuid
+  created         timestampz
+  title           text
+}
+
+model location {
+  id              int8
+  user_id         uuid
+  created         timestampz
+  title           text
+  longitude       number
+  latitude        number
+  elevation       number
+}
+
+model subject {
+  id              int8
+  user_id         uuid
+  created         timestampz
+  name            text
+  type            text
+  description     text
+  notes           text
+}
+
+model report {
+  id              int8
+  user_id         uuid
+  created         time
+  start_time      timestampz
+  end_time        timestampz
+  title           text
+  article         text
+  report_number   int8
+  activities      activity[]
+  beds            beds[]
+  compounds       compound[]
+  locations       location[]
+  people          person[]
+}
+
+model tag {
+  id              int8
+  created         timestampz
+  user_id         uuid
+  name            text
+  description     text
+}

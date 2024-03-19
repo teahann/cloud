@@ -10,7 +10,7 @@
   const user_tags = writable([])
   const filtered_tags = writable([])
   let loading = true;
-  let view_tag_editor = false;
+  let tag_editor = false;
   let tag_editor_search = '';
   const compound = writable({});
   let edited = {};
@@ -28,7 +28,7 @@
       if (error) {
         throw error;
       } else {
-        if (typeof data[0].tags == 'undefined') data[0].tags = new Array()
+        if (typeof data[0].tags == 'undefined') data[0].tags = []
         compound.set(data[0]);
         edited = data[0];
       }
@@ -86,10 +86,10 @@
     return (s.endsWith('_id')?s.slice(0,-3):s).replace(/^./,c=>c.toUpperCase())
   }
 
-  const edit_tags = () => view_tag_editor = true
+  const edit_tags = () => tag_editor = true
 
   const save_tags = (e) => {
-    view_tag_editor = false;
+    tag_editor = false;
     edited.tags = e.detail.tags
   }
 
@@ -100,8 +100,12 @@
     <img src="/assets/loading.svg" alt="Loading" />
   </div>
 {:else}
-  {#if view_tag_editor}
-    <Tags_Modal all_tags={$user_tags} compound_tags={edited.tags} on:close={save_tags} />
+  {#if tag_editor}
+    <Tags_Modal
+      all_tags={$user_tags}
+      compound_tags={edited.tags}
+      on:close={save_tags}
+    />
   {:else}
     <div id="Edit">
       <h3>Editing {name}</h3>

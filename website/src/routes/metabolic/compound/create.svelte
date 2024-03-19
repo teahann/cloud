@@ -134,10 +134,10 @@
           <td><input type="text" bind:value={compound.sources[source]}></td>
         </tr>
       {/each}
-      <tr class="Tags" on:click={edit_tags}>
+      <tr on:click={edit_tags}>
         <th>Tags</th>
         {#if compound.tags.length < 1}
-          <td class="Expand">(Click to expand)</td>
+          <td class="Expand Tags">(Click to expand)</td>
         {:else}
           <td class="Tags" title="Click to edit">
             {#each compound.tags as tag}
