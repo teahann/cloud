@@ -2,8 +2,8 @@
 ### DataSet assembly interface for phenotype intelligence
 
 ## Reports on genetic expression
-### Cardiovasular state over time (exercise, sedentary)
-### Compounds consumtion + pathway (epidermis, metabolic)
-### Environment factors (location, atmospheric composition)
-### Sleep data (bed, length)
-### Social (people, events, content)
+### Cardiovasular state over time
+### Compounds consuption + pathway (Cardio, Epidermis, Metabolic)
+### Environment + atmospheric conditions
+### Sleep quality
+### Social activity

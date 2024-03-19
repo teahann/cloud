@@ -12,15 +12,15 @@
 
 </script>
 
-<div id="Modal" class="Account" on:mouseleave={close_modal}>
+<div id="Modal" class="Account">
   <div class="Container">
     {#if $user.id}
-      <div class="Options">
+      <div class="Options" on:mouseleave={close_modal}>
         <a href="/settings">Settings</a>
         <button on:click={signout}>Sign out</button>
       </div>
     {:else}
-      <div class="Login">
+      <div class="Login" on:mouseleave={close_modal}>
         <p class="Error">{message}</p>
         <input type="text" bind:value={user_input.email} placeholder="Email">
         <input type="password" bind:value={user_input.password} placeholder="Password">

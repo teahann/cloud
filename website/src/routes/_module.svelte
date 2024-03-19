@@ -2,10 +2,8 @@
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
   import { afterUrlChange } from '@roxi/routify';
-  // components
   import Account_Modal from '@/components/Account_Modal.svelte';
   import Background from '@/components/Background.svelte';
-  // utils
   import { supabase } from '@/utils/supabase.js';
   import { user } from '@/utils/user.js';
   import { loading } from '@/utils/loading.js';
@@ -22,18 +20,15 @@
 
   $afterUrlChange(({ route }) => load_header(route.url));
 
-  // Load nav items from URL path
   const load_header = (url) => {
     path.set(url.replace(/%20/g, ' ')
-      .split('/').filter(Boolean).map((page, i, arr) => ({
-        name: page,
-        url: `/${arr.slice(0, i + 1).join('/')}`
-      })
+      .split('/').filter(Boolean).map((page, i, arr) => (
+        { name: page, url: `/${arr.slice(0, i + 1).join('/')}` }
+      )
     ))
   }
 
   const tgl_account = () => show_account = !show_account;
-
 </script>
 
 {#if show_account}
